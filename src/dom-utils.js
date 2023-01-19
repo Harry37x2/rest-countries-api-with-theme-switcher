@@ -16,8 +16,7 @@ const createFlagImgElement = (country) => {
     const imgContainerElement = document.createElement('div');
     const imgElement = document.createElement('img');
     imgElement.src = country.flagUrl;
-    imgElement.width=80;
-    imgElement.height=49;
+    imgElement.alt = `${country.name} flag`;
 
     imgContainerElement.append(imgElement);
 
@@ -27,20 +26,27 @@ const createFlagImgElement = (country) => {
 const createCountryElement = (country) => {
     const countryElement = document.createElement('li');
 
-    const countryNameElement = document.createElement('span');
-    countryNameElement.innerHTML = country.name;
-
     countryElement.appendChild(createFlagImgElement(country));
-    countryElement.appendChild(countryNameElement);
-    countryElement.appendChild(createInfoElement('Population', country.population));
-    countryElement.appendChild(createInfoElement('Region', country.region));
-    countryElement.appendChild(createInfoElement('Capital', country.capital));
+    const infoContainerElement = document.createElement('div');
+    infoContainerElement.classList.add('info-container')
+
+
+    const countryNameElement = document.createElement('strong');
+    countryNameElement.innerHTML = country.name;
+    countryNameElement.classList.add('country-name');
+
+    infoContainerElement.appendChild(countryNameElement);
+    infoContainerElement.appendChild(createInfoElement('Population', country.population));
+    infoContainerElement.appendChild(createInfoElement('Region', country.region));
+    infoContainerElement.appendChild(createInfoElement('Capital', country.capital));
+
+    countryElement.appendChild(infoContainerElement)
 
     return countryElement;
 }
 
 const createListElement = (countries) => {
-    const listElement = document.createElement('li');
+    const listElement = document.createElement('ul');
     countries.forEach(country => {
         listElement.appendChild(createCountryElement(country))
     })
