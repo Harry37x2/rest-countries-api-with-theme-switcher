@@ -15,23 +15,22 @@
             <h1>Where in the World</h1>
             <button>Dark theme</button>
         </header>
-        <main id="root">
-            <div class="filters">
-                <input 
-                    placeholder="Search for a country" 
-                    type="text" 
-                    id="query"
-                />
-                <select name="region" id="region">
-                    <option value=""></option>
-                    <option value="Europe">Europe</option>
-                    <option value="America">America</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Africa">Africa</option>
-                    <option value="Oceania">Oceania</option>
-                </select>
-            </div>
-        </main>
+        <div class="filters">
+            <input 
+                placeholder="Search for a country" 
+                type="text" 
+                id="query"
+            />
+            <select name="region" id="region">
+                <option value="">Filter by region</option>
+                <option value="Europe">Europe</option>
+                <option value="Americas">Americas</option>
+                <option value="Asia">Asia</option>
+                <option value="Africa">Africa</option>
+                <option value="Oceania">Oceania</option>
+            </select>
+        </div>
+        <main id="root"></main>
         <script type="module" src="dom-utils.js"></script>
         <script type="module" src="app.js"></script>
     </body>
