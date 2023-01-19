@@ -1,10 +1,10 @@
-import { renderCountriesList } from "./dom-utils";
+import { renderCountriesList } from "./dom-utils.js";
 const API_URL_ALL='https://restcountries.com/v3.1/all'
 
 fetch(API_URL_ALL)
     .then((res)=> res.json())
     .then((countriesRawData) => {
-        countries = countriesRawData.map((country) => {
+        const countries = countriesRawData.map((country) => {
             return {
                 capital: country.capital && country.capital[0],
                 population: country.population,
