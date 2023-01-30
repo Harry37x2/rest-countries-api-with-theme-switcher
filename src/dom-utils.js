@@ -117,6 +117,28 @@ const createBorderCountriesContainer = (country) => {
     })
 
     return borderCountriesContainerElement;
+};
+
+const darkModeButton = document.querySelector('header button');
+let theme = localStorage.getItem('theme');
+darkModeButton.addEventListener('click', () => {
+    if (theme === 'dark'){
+        document.querySelector('body').classList.remove('darkMode');
+        document.querySelector('body').classList.add('lightMode');
+        theme = 'light'
+    } else {
+        document.querySelector('body').classList.remove('lightMode');
+        document.querySelector('body').classList.add('darkMode');
+        theme = 'dark';
+    }
+    localStorage.setItem('theme', theme)
+});
+
+if (theme === 'dark') {
+    document.querySelector('body').classList.add('darkMode')
+}
+if (theme === 'light') {
+    document.querySelector('body').classList.add('lightMode')
 }
 
 export const renderCountriesList = (countries) => {
